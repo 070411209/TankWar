@@ -60,22 +60,22 @@ class TankWar:
 
     def __check_keydown(self, event):
         """检查按下按钮的事件"""
-        if event.key == pygame.K_LEFT:
+        if event.key == pygame.K_j:
             # 按下左键
             self.hero.direction = Settings.LEFT
             self.hero.is_moving = True
             self.hero.is_hit_wall = False
-        elif event.key == pygame.K_RIGHT:
+        elif event.key == pygame.K_l:
             # 按下右键
             self.hero.direction = Settings.RIGHT
             self.hero.is_moving = True
             self.hero.is_hit_wall = False
-        elif event.key == pygame.K_UP:
+        elif event.key == pygame.K_i:
             # 按下上键
             self.hero.direction = Settings.UP
             self.hero.is_moving = True
             self.hero.is_hit_wall = False
-        elif event.key == pygame.K_DOWN:
+        elif event.key == pygame.K_k:
             # 按下下键
             self.hero.direction = Settings.DOWN
             self.hero.is_moving = True
@@ -86,19 +86,19 @@ class TankWar:
 
     def __check_keyup(self, event):
         """检查松开按钮的事件"""
-        if event.key == pygame.K_LEFT:
+        if event.key == pygame.K_j:
             # 松开左键
             self.hero.direction = Settings.LEFT
             self.hero.is_moving = False
-        elif event.key == pygame.K_RIGHT:
+        elif event.key == pygame.K_l:
             # 松开右键
             self.hero.direction = Settings.RIGHT
             self.hero.is_moving = False
-        elif event.key == pygame.K_UP:
+        elif event.key == pygame.K_i:
             # 松开上键
             self.hero.direction = Settings.UP
             self.hero.is_moving = False
-        elif event.key == pygame.K_DOWN:
+        elif event.key == pygame.K_k:
             # 松开下键
             self.hero.direction = Settings.DOWN
             self.hero.is_moving = False
