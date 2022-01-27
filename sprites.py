@@ -126,7 +126,7 @@ class TankSprite(BaseSprite):
 
 class Hero(TankSprite):
 
-    def __init__(self, image_name, screen):
+    def __init__(self, image_name, screen, player = 0):
         super(Hero, self).__init__(image_name, screen)
         self.type = Settings.HERO
         self.speed = Settings.HERO_SPEED
@@ -134,8 +134,14 @@ class Hero(TankSprite):
         self.is_hit_wall = False
 
         # 初始化英雄的位置
-        self.rect.centerx = Settings.SCREEN_RECT.centerx - Settings.BOX_RECT.width * 2
-        self.rect.bottom = Settings.SCREEN_RECT.bottom
+        if player == 0:
+            self.rect.centerx = Settings.SCREEN_RECT.centerx - Settings.BOX_RECT.width * 2
+            self.rect.top = Settings.SCREEN_RECT.top
+            print("-------------HERO---------------")
+        if player == 1:
+            self.rect.centerx = Settings.SCREEN_RECT.centerx - Settings.BOX_RECT.width * 2
+            self.rect.bottom = Settings.SCREEN_RECT.bottom
+            print("-------------MAN---------------")
 
     def __turn(self):
         self.image = pygame.image.load(Settings.HERO_IMAGES.get(self.direction))

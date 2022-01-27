@@ -6,7 +6,7 @@ class Settings:
 
     # 游戏设置
     FPS = 60    # 游戏帧率
-    GAME_NAME = "坦克大战"  # 游戏标题
+    GAME_NAME = "雷达地图"  # 游戏标题
     BOX_SIZE = 50   # 单位屏幕大小
     BOX_RECT = Rect(0, 0, BOX_SIZE, BOX_SIZE)   # 单位屏幕矩形
     SCREEN_RECT = Rect(0, 0, BOX_SIZE * 19, BOX_SIZE * 13)  # 屏幕矩形
@@ -46,6 +46,7 @@ class Settings:
 
     # 我方坦克
     HERO_IMAGE_NAME = "./resources/images/hero/hero1U.gif"
+    MAN_IMAGE_NAME = "./resources/images/hero/hero1U.gif"
     HERO_IMAGES = {
         LEFT: "./resources/images/hero/hero1L.gif",
         RIGHT: "./resources/images/hero/hero1R.gif",
