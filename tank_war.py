@@ -24,13 +24,14 @@ class TankWar:
         pygame.mixer.init()    # 初始化音频模块
 
     def __create_mapping(self):
-        self.hero = Hero(Settings.HERO_IMAGE_NAME, self.screen, 0)
-        self.man = Hero(Settings.MAN_IMAGE_NAME, self.screen, 1)
+        self.hero = Hero(Settings.HERO_IMAGE_NAME, self.screen, 1)
+        self.man = Hero(Settings.MAN_IMAGE_NAME, self.screen, 0)
         self.walls = pygame.sprite.Group()
         self.__draw_map()
 
     def __create_sprite(self):
-        self.hero = Hero(Settings.HERO_IMAGE_NAME, self.screen)
+        self.hero = Hero(Settings.HERO_IMAGE_NAME, self.screen, 1)
+        self.man = Hero(Settings.MAN_IMAGE_NAME, self.screen, 0)
         self.enemies = pygame.sprite.Group()
         self.enemy_bullets = pygame.sprite.Group()
         self.walls = pygame.sprite.Group()
@@ -200,7 +201,7 @@ class TankWar:
                     # 移出墙内
                     self.man.move_out_wall(wall) 
         # 子弹击中、敌方坦克碰撞、敌我坦克碰撞
-        # pygame.sprite.groupcollide(self.hero.bullets, self.man, True, True)
+        # pygame.sprite.groupcollide(self.hero.bullets, self.man.bullets, True, True)
         # 敌方子弹击中我方
         for bullet in self.man.bullets:
             if pygame.sprite.collide_rect(bullet, self.hero):
@@ -312,11 +313,6 @@ class TankWar:
             pygame.display.update()
         self.__game_over()
 
-    @staticmethod
-    def __game_over():
-        pygame.quit()
-        exit()
-
     def play_game(self):
         self.__init_game()
         self.__create_mapping()
@@ -327,4 +323,12 @@ class TankWar:
             self.__check_obstacle()
             self.__update_walls()
             pygame.display.update()
+        self.__game_over()
+
+    @staticmethod
+    def __game_over():
+        pygame.quit()
+        exit()
+
+
 

@@ -161,7 +161,9 @@ class Hero(TankSprite):
     def kill(self):
         self.is_alive = False
         self.boom()
-
+        for group in self.__g:
+            group.remove_internal(self)
+        self.__g.clear()
 
 class Enemy(TankSprite):
 
