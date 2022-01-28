@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+import os
+import PySimpleGUI as sg
+
 # from PIL import Image
 # from settings import Settings
 #
@@ -62,8 +66,6 @@
 #     pygame.display.update()
 
 def func():
-    import os
-    import PySimpleGUI as sg
 
     path = r"D:\Coding Files\Workplace\PythonWorkplace\TankWar2.0\resources\images\walls"
 

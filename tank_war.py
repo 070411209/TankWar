@@ -201,7 +201,7 @@ class TankWar:
                     # 移出墙内
                     self.man.move_out_wall(wall) 
         # 子弹击中、敌方坦克碰撞、敌我坦克碰撞
-        # pygame.sprite.groupcollide(self.hero.bullets, self.man.bullets, True, True)
+        pygame.sprite.groupcollide(self.hero.bullets, self.man.bullets, True, True)
         # 敌方子弹击中我方
         for bullet in self.man.bullets:
             if pygame.sprite.collide_rect(bullet, self.hero) and self.hero.is_alive:
