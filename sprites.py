@@ -158,10 +158,6 @@ class Hero(TankSprite):
             super().update()
             self.__turn()
 
-    def kill(self):
-        self.is_alive = False
-        self.boom()
-
 class Enemy(TankSprite):
 
     def __init__(self, image_name, screen):

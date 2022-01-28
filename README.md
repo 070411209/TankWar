@@ -9,10 +9,9 @@
 我们先来看看我的开发环境，用的东西还是比较简单的：
 
 ```
-作者：Zack
-时间：2020年10月16日
-集成开发工具：pycharm 2020
-开发环境：python 3.7.9
+作者：Belong
+时间：2021年01月16日
+开发环境：python 3.7
 第三方模块：pygame
 ```
 
@@ -77,9 +76,9 @@ settings.py中定义了一些设置信息，包括子弹的数量、子弹的速
 
 因为代码比较多，这里就不介绍代码了。游戏还要许多不足之处，后续会继续更新。项目已上传GitHub，欢迎各位来fork。今天就介绍到这里了~
 
-项目地址：https://github.com/IronSpiderMan/TankWar
+项目地址：https://github.com/070411209/TankWar
 
 pygame文档地址：https://www.pygame.org/docs/
 
-本文来源公众号：新建文件夹X，转载请标明出处。
+本文来源公众号：北络2021
 

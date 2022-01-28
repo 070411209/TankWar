@@ -204,13 +204,16 @@ class TankWar:
         # pygame.sprite.groupcollide(self.hero.bullets, self.man.bullets, True, True)
         # 敌方子弹击中我方
         for bullet in self.man.bullets:
-            if pygame.sprite.collide_rect(bullet, self.hero):
+            if pygame.sprite.collide_rect(bullet, self.hero) and self.hero.is_alive:
                 bullet.kill()
                 self.hero.kill()
+                print("--->>> bullet to hero")
+
         for bullet in self.hero.bullets:
-            if pygame.sprite.collide_rect(bullet, self.man):
+            if pygame.sprite.collide_rect(bullet, self.man) and self.man.is_alive:
                 bullet.kill()
                 self.man.kill()
+                print("--->>> bullet to mans")
 
     def __check_collide(self):
         # 保证坦克不移出屏幕
@@ -267,7 +270,7 @@ class TankWar:
                     self.hero.kill()
 
     def __update_sprites(self):
-        if self.hero.is_moving:
+        if self.hero.is_moving and self.hero.alive:
             self.hero.update()
         self.walls.update()
         self.hero.bullets.update()
@@ -281,18 +284,21 @@ class TankWar:
         self.walls.draw(self.screen)
 
     def __update_walls(self):
-        if self.hero.is_moving:
-            self.hero.update()    
-        self.hero.bullets.update()
-        self.hero.bullets.draw(self.screen)
-        self.screen.blit(self.hero.image, self.hero.rect)
+        if self.hero.is_moving and self.hero.is_alive:
+            self.hero.update()
+        if self.hero.is_alive:
+            self.hero.bullets.update()
+            self.hero.bullets.draw(self.screen)
+            self.screen.blit(self.hero.image, self.hero.rect)
 
-        if self.man.is_moving:
-            self.man.update()    
-        self.man.bullets.update()
-        self.man.bullets.draw(self.screen)
-        self.screen.blit(self.man.image, self.man.rect)
-
+        if self.man.is_moving and self.man.is_alive:
+            self.man.update()
+        if self.man.is_alive:
+            self.man.bullets.update()
+            self.man.bullets.draw(self.screen)
+            self.screen.blit(self.man.image, self.man.rect)
+        
+        
         self.walls.update()
         self.walls.draw(self.screen)
 
@@ -316,7 +322,7 @@ class TankWar:
     def play_game(self):
         self.__init_game()
         self.__create_mapping()
-        while True: 
+        while True and self.game_still:
             self.screen.fill(Settings.SCREEN_COLOR)
             self.clock.tick(Settings.FPS)
             self.__event_handler()
