@@ -81,4 +81,5 @@ settings.py中定义了一些设置信息，包括子弹的数量、子弹的速
 pygame文档地址：https://www.pygame.org/docs/
 
 本文来源公众号：北络2021
+---
 
